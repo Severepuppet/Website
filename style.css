@@ -1,0 +1,16 @@
+#canvas {
+    position: absolute;
+    left: 50% ;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.Weiterleitung {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8vh;
+  font-size: 300%;
+  font-family: Impact;
+  color: black;
+}
