@@ -13,10 +13,11 @@ let größeFeldX = canv.width/cols;
 let größeFeldY = canv.height/rows;
 let eingesammelt = false;
 
+function setup(){
 document.addEventListener('keydown',direction);     // immer wenn eine Taste gedrückt wird ...
 setInterval(loop,300);      // alle 300ms ... ausführen
 randomFood();
-
+}
 
 
 function draw() {           // in loop immer wiederhohlt
@@ -39,6 +40,7 @@ function food(){            // zum Zeichnen des essens
     
 function loop(){            // immer alle 300ms ausgeführt
     spielende1();
+    spielende2();
     draw();
     
        if (eingesammelt) {
@@ -56,7 +58,7 @@ function loop(){            // immer alle 300ms ausgeführt
        if (directionS == 'DOWN') snakeCords[0].y++;
        if (directionS == 'RIGHT') snakeCords[0].x++;
        if (directionS == 'UP') snakeCords[0].y--;
-       ausBildschirm();
+       
        if (snakeCords[0].x==foodX && snakeCords[0].y == foodY) {     // wenn Essen auf der gleichen stelle ist
    randomFood();
    eingesammelt=true;
@@ -64,16 +66,23 @@ function loop(){            // immer alle 300ms ausgeführt
   
 }
 
-function spielende1 (){
+function spielende1 (){     // wenn man gegen sich selbst fährt
     for (let i = 1; i < snakeCords.length; i++) {
         if (snakeCords[0].x==snakeCords[i].x && snakeCords[0].y==snakeCords[i].y)
         {
-            randomFood();
-            snakeCords = [{x:0,y:2}];
-            directionS = 'RIGHT';
+            beenden();
         }
-        
     }
+}
+
+function spielende2(){          //wenn man gegen den Rand fährt
+    if (snakeCords[0].x < 0      ||
+        snakeCords[0].x > cols-1 || 
+        snakeCords[0].y < 0      || 
+        snakeCords[0].y > rows-1)
+        {
+            beenden();
+        }
 }
 
 function updateSnake(){
@@ -83,22 +92,10 @@ function updateSnake(){
     }
 }
 
-function ausBildschirm(){
-    if(snakeCords[0].x < 0){
-        snakeCords[0].x=cols-1;
-    }
-
-    if(snakeCords[0].x > cols-1){
-        snakeCords[0].x=0;
-    }
-
-    if(snakeCords[0].y < 0){
-        snakeCords[0].y=rows-1;
-    }
-
-    if(snakeCords[0].y > rows-1){
-        snakeCords[0].y=0;
-    }
+function beenden(){
+    randomFood();
+    snakeCords = [{x:0,y:2}];
+    directionS = 'RIGHT';  
 }
    
 
