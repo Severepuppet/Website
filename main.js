@@ -5,19 +5,18 @@ let cols = 15;
 let directionS = 'RIGHT';
 let canv = document.getElementById('canvas');
 let c = canv.getContext('2d');
-let snakeCords = [
-    {x:0,y:2},
-   
-]
+let snakeCords = [];
 let größeFeldX = canv.width/cols;
 let größeFeldY = canv.height/rows;
 let eingesammelt = false;
+let interval = false;
 
-function setup(){
+
+snakeCords = [{x:0,y:2}];
+directionS = 'RIGHT';
 document.addEventListener('keydown',direction);     // immer wenn eine Taste gedrückt wird ...
-setInterval(loop,300);      // alle 300ms ... ausführen
+if (!interval) {setInterval(loop,300);interval=true;}      // alle 300ms ... ausführen
 randomFood();
-}
 
 
 function draw() {           // in loop immer wiederhohlt
