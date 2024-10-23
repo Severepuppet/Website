@@ -41,7 +41,6 @@ body {
   width: 100%;
   position: absolute;
   top: 20vh;
-  
 }
 
 .Link,
@@ -49,45 +48,64 @@ body {
 .Link:hover,
 .Link:active {
   text-decoration: none;
+  color: white;
 }
 
-.square {
+.bildContainer {
   height: 20vw;
   width: 20vw;
   background-color: black;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
-  border-radius: 10%;
+  border-radius: 2vw;
+  border: 1px solid rgb(147, 147, 147);
+  transition:  0.2s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContainer {
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+  height: 7vw;
+  width: 20vw;
+  background: linear-gradient(to bottom,rgb(89, 89, 89),rgb(237, 237, 237));
+  border-radius: 2vw;
   border: 1px solid rgb(147, 147, 147);
   transition: height 0.2s ease-out;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
+  transition: 0.3s;
 }
 
-img{
+.bildContainer:hover ~ .textContainer {
+  bottom: -4vw;
+}
+.bildContainer:hover{
+  box-shadow: 20px 0px 20px rgba(0, 0, 0, 0.7);
+}
+
+img {
   width: 80%;
 }
 
-.schrift{
-  position: relative;
-  bottom: 4%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: 0.4s ;
+#menüBild{
+  width: 8%;
 }
 
-.square:hover {
-  height: 24vw;
-}
-
-.square:hover .schrift {
-  opacity: 1;
-}
 
 h1 {
+  position: relative;
+  bottom: 10%;
+  color: rgb(49, 49, 49);
   font-family: Impact;
   font-size: 2.5vw;
+}
+
+.unterContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

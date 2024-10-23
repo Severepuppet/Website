@@ -5,6 +5,7 @@ let cols = 15;
 let directionS = 'RIGHT';
 let canv = document.getElementById('canvas');
 let count = document.getElementById('count');
+let Bild = document.getElementById('Pfeiltasten');
 let cnt = 0;
 let c = canv.getContext('2d');
 let snakeCords = [];
@@ -14,11 +15,14 @@ let eingesammelt = false;
 let interval = false;
 
 
+function setup() {
 snakeCords = [{x:0,y:2}];
 directionS = 'RIGHT';
 document.addEventListener('keydown',direction);     // immer wenn eine Taste gedrückt wird ...
 if (!interval) {setInterval(loop,300);interval=true;}      // alle 300ms ... ausführen
 randomFood();
+Bild.style.opacity = 0;
+}
 
 function draw() {           // in loop immer wiederhohlt
   c.fillStyle = 'black';
@@ -37,7 +41,7 @@ function food(){            // zum Zeichnen des essens
     c.fillStyle = "yellow"; 
     c.fillRect(foodX * größeFeldX,foodY * größeFeldY,größeFeldX-2,größeFeldY-2);
 }
-    
+
 function loop(){            // immer alle 300ms ausgeführt
     count.innerHTML = "count: " + cnt;
     spielende1();
