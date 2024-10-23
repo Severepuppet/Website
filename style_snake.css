@@ -31,11 +31,15 @@
   #canvas {
     width: 80vh;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
-    border-radius: 5%;
+    border-radius: 3%;
   }
 
   #textBack {
     font-size: 300%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
+  }
+
+  #count {
+    font-size: 300%;
   }

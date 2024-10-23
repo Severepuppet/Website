@@ -4,6 +4,8 @@ let rows = 15;
 let cols = 15;
 let directionS = 'RIGHT';
 let canv = document.getElementById('canvas');
+let count = document.getElementById('count');
+let cnt = 0;
 let c = canv.getContext('2d');
 let snakeCords = [];
 let größeFeldX = canv.width/cols;
@@ -17,7 +19,6 @@ directionS = 'RIGHT';
 document.addEventListener('keydown',direction);     // immer wenn eine Taste gedrückt wird ...
 if (!interval) {setInterval(loop,300);interval=true;}      // alle 300ms ... ausführen
 randomFood();
-
 
 function draw() {           // in loop immer wiederhohlt
   c.fillStyle = 'black';
@@ -38,6 +39,7 @@ function food(){            // zum Zeichnen des essens
 }
     
 function loop(){            // immer alle 300ms ausgeführt
+    count.innerHTML = "count: " + cnt;
     spielende1();
     spielende2();
     draw();
@@ -61,6 +63,7 @@ function loop(){            // immer alle 300ms ausgeführt
        if (snakeCords[0].x==foodX && snakeCords[0].y == foodY) {     // wenn Essen auf der gleichen stelle ist
    randomFood();
    eingesammelt=true;
+   counterhöhen();
   }
   
 }
@@ -95,6 +98,7 @@ function beenden(){
     randomFood();
     snakeCords = [{x:0,y:2}];
     directionS = 'RIGHT';  
+    cnt = 0;
 }
    
 
@@ -116,4 +120,15 @@ function direction(e){      // wenn ein pfeil gedrückt wird
 function randomFood(){                          // koordinaten das Essen zufällig verändern
     foodX = Math.floor(Math.random()*cols) ;
     foodY = Math.floor(Math.random()*rows) ;
+    for (let i = 0; i < snakeCords.length; i++) {
+        if (foodX == snakeCords[i].x && foodY == snakeCords[i].y)
+        {
+            randomFood();
+        }
+        
+    }
+}
+
+function counterhöhen() {
+    cnt += 1;
 }
