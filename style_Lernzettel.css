@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body , html {
+    height: 100%;
+  }
+  
+  body {
+    background: linear-gradient(to top left,#358e38b1,transparent),
+                linear-gradient(to bottom right,#09629da8,transparent),
+                linear-gradient(to top right,#13262dc6,transparent),
+                linear-gradient(to bottom left,#e0ffe1e2,transparent );
+    background-blend-mode: overlay	;
+    display: flex;
+    flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  }

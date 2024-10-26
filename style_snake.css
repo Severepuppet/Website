@@ -36,7 +36,7 @@
   }
 
   #textBack {
-    font-size: 300%;
+    font-size: 5vh;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
   }
@@ -44,8 +44,13 @@
   #count {
     text-decoration: none;
     cursor: pointer;
-    font-size: 300%;
+    font-size: 5vh;
+    font-family:  sans-serif;
   }
+  #count:hover {
+    font-weight: bold;
+  }
+
   .Pfeiltasten {
     position: absolute;
     width: 30vh;
