@@ -29,7 +29,7 @@
   }
 
   #canvas {
-    width: 80vh;
+    width: 70vh;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.7);
     border-radius: 3%;
     background-color: black;
@@ -55,4 +55,64 @@
     position: absolute;
     width: 30vh;
     top: 50vh;
+  }
+
+  .funktionsPfeile{
+    display: none;
+
+  }
+
+  @media ( max-width: 1179px ) {
+    #canvas{
+      width: 70vw;
+    }
+
+    .funktionsPfeile{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .funktionsPfeile div{
+      display: flex;
+      align-items: center; 
+      justify-content: center;
+    }
+
+    #base{
+      gap: 10px;
+    }
+
+    .minipfeiltaste{
+      width: 100%;
+    }
+    .Pfeiltasten{
+      display: none;
+    }
+
+    #oben{
+      width: 15vw;
+      height: 15vw;
+      
+      transform: rotate(180deg);
+    }
+    #links{
+      width: 15vw;
+      height: 15vw;
+      
+      transform: rotate(90deg);
+    }
+    #rechts{
+      width: 15vw;
+      height: 15vw;
+      transform: rotate(270deg);
+
+    }
+
+    #unten{
+      width: 15vw;
+      height: 15vw;
+
+    }
   }
